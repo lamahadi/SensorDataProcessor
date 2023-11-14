@@ -1,12 +1,12 @@
 public class SensorDataProcessor {
 
     // Senson data and limits.
-    public double[][][] data;
+    public double[][][] sensorData;
     public double[][] limit;
 
     // constructor
-    public SensorDataProcessor(double[][][] data, double[][] limit) {
-        this.data = data;
+    public SensorDataProcessor(double[][][] sensorData, double[][] limit) {
+        this.sensorData = sensorData;
         this.limit = limit;
     }
 
