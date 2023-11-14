@@ -22,7 +22,7 @@ public class SensorDataProcessor {
     }
 
     // calculate data
-    public void calculate(double d) {
+    public void calculateData(double d) {
 
         int i, j, k = 0;
         double[][][] data2 = new
