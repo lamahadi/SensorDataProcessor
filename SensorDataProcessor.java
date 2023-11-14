@@ -11,14 +11,14 @@ public class SensorDataProcessor {
     }
 
     // calculates average of sensor data
-    private double average(double[] array) {
+    private double calculateAverage(double[] array) {
         int i = 0;
-        double val = 0;
+        double sum = 0;
         for (i = 0; i < array.length; i++) {
-            val += array[i];
+            sum += array[i];
         }
 
-        return val / array.length;
+        return sum / array.length;
     }
 
     // calculate data
@@ -27,11 +27,11 @@ public class SensorDataProcessor {
         int i, j, k = 0;
         double[][][] data2 = new
     double[data.length][data[0].length][data[0][0].length];
-        BufferedWriter out;
+        BufferedWriter fileWriter;
 
     // Write racing stats data into a file
         try {
-            out = new BufferedWriter(new FileWriter("RacingStatsData.txt"));
+            fileWriter = new BufferedWriter(new FileWriter("RacingStatsData.txt"));
             
             for (i = 0; i < data.length; i++) {
                 for (j = 0; j < data[0].length; j++) {
@@ -58,11 +58,11 @@ Math.pow(Math.abs(data2[i][j][k]), 3)
 
             for (i = 0; i < data2.length; i++) {
                 for (j = 0; j < data2[0].length; j++) {
-                    out.write(data2[i][j] + "\t");
+                    fileWriter.write(data2[i][j] + "\t");
                 }
             }
 
-            out.close();
+            fileWriter.close();
 
         } catch (Exception e) {
             System.out.println("Error= " + e);
