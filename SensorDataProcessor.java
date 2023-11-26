@@ -43,7 +43,7 @@ public class SensorDataProcessor {
         double[][][] data2 = new double[sensorData.length][sensorData[0].length][sensorData[0][0].length];
         BufferedWriter fileWriter;
 
-    // Write racing stats data into a file
+        // Write racing stats data into a file
         try {
             fileWriter = new BufferedWriter(new FileWriter("RacingStatsData.txt"));
             
@@ -65,7 +65,6 @@ public class SensorDataProcessor {
                     }
                 }
             }
-
             // Write calculated data to the file
             for (i = 0; i < data2.length; i++) {
                 for (j = 0; j < data2[0].length; j++) {
