@@ -7,6 +7,10 @@ public class SensorDataProcessor {
     public double[][][] sensorData;
     public double[][] limit;
 
+    private static final int Min_Average = 10;
+    private static final int Max_Average = 50;
+    private static final int Multiplication_Factor = 2;
+
     /**
      * Constructor for SensorDataProcessor.
      *
@@ -50,10 +54,10 @@ public class SensorDataProcessor {
             for (i = 0; i < sensorData.length; i++) {
                 for (j = 0; j < sensorData[0].length; j++) {
                     for (k = 0; k < sensorData[0][0].length; k++) {
-                        data2[i][j][k] = sensorData[i][j][k] / d - Math.pow(limit[i][j], 2.0);
+                        data2[i][j][k] = sensorData[i][j][k] / d - Math.pow(limit[i][j], Multiplication_Factor);
 
                         // Check conditions and perform calculations
-                        if (calculateAverage(data2[i][j]) > 10 && calculateAverage(data2[i][j]) < 50)
+                        if (calculateAverage(data2[i][j]) > Min_Average && calculateAverage(data2[i][j]) < Max_Average)
                             break;
                         else if (Math.max(sensorData[i][j][k], data2[i][j][k]) > sensorData[i][j][k])
                             break;
