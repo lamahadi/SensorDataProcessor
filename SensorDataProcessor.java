@@ -1,6 +1,6 @@
 /**
  * The SensorDataProcessor class processes sensor data and writes the calculated data to a file.
- */
+*/
 public class SensorDataProcessor {
 
     // Senson data and limits.
@@ -16,7 +16,7 @@ public class SensorDataProcessor {
      *
      * @param sensorData The sensor data.
      * @param limit The limits.
-     */
+    */
     public SensorDataProcessor(double[][][] sensorData, double[][] limit) {
         this.sensorData = sensorData;
         this.limit = limit;
@@ -27,7 +27,7 @@ public class SensorDataProcessor {
      *
      * @param array The input array.
      * @return The average of the array.
-     */
+    */
     private double calculateAverage(double[] array) {
         int i = 0;
         double sum = 0;
@@ -41,7 +41,7 @@ public class SensorDataProcessor {
      * Calculates the data and writes it to a file.
      *
      * @param d The value 'd' used in the calculation.
-     */
+    */
     public void calculateData(double d) {
         int i, j, k = 0;
         double[][][] data2 = new double[sensorData.length][sensorData[0].length][sensorData[0][0].length];
@@ -57,22 +57,25 @@ public class SensorDataProcessor {
                         data2[i][j][k] = sensorData[i][j][k] / d - Math.pow(limit[i][j], Multiplication_Factor);
 
                         // Check conditions and perform calculations
-                        if (calculateAverage(data2[i][j]) > Min_Average && calculateAverage(data2[i][j]) < Max_Average)
+                        if (calculateAverage(data2[i][j]) > Min_Average && calculateAverage(data2[i][j]) < Max_Average){
                             break;
-                        else if (Math.max(sensorData[i][j][k], data2[i][j][k]) > sensorData[i][j][k])
+                        }else if (Math.max(sensorData[i][j][k], data2[i][j][k]) > sensorData[i][j][k]){
                             break;
-                        else if (Math.pow(Math.abs(data[i][j][k]), 3) < Math.pow(Math.abs(data2[i][j][k]), 3)
-                            && calculateAverage(sensorData[i][j]) < data2[i][j][k] && (i + 1) * (j + 1) > 0)
+                        }else if (Math.pow(Math.abs(data[i][j][k]), 3) < Math.pow(Math.abs(data2[i][j][k]), 3)
+                            && calculateAverage(sensorData[i][j]) < data2[i][j][k] && (i + 1) * (j + 1) > 0){
                             data2[i][j][k] *= 2;
-                        else
+                        }else{
                         continue;
+                        }
                     }
                 }
             }
             // Write calculated data to the file
             for (i = 0; i < data2.length; i++) {
                 for (j = 0; j < data2[0].length; j++) {
-                    fileWriter.write(data2[i][j] + "\t");
+                    for(k=0; k < data2[0][0].length; k++){
+                        fileWriter.write(data2[i][j][k] + "\t");
+                    }
                 }
             }
 
