@@ -75,7 +75,11 @@ public class SensorDataProcessor {
                 for (j = 0; j < data2[0].length; j++) {
                     for(k=0; k < data2[0][0].length; k++){
                         fileWriter.write(data2[i][j][k] + "\t");
+            // Optionally, add a new line after each row
+                if (k == data2[i][j].length - 1) {
+                    fileWriter.write("\n");
                     }
+                    
                 }
             }
 

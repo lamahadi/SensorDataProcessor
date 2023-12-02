@@ -9,6 +9,5 @@ Assignment#2 CCSW 325 Software Construction
 # Student name: Shifaa Alotaibi - Student ID: 2111017 - added missing brackets to properly enclose the code inside if statements and used separate loop variables for the three nested loops ana corrected the writing of calculated data to the file inside the nested loops.
 
 
-
-
+# Student name: Lujain aloufi - Student ID: 2111522 - 
 
