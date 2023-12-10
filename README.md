@@ -2,7 +2,7 @@
 Assignment#2 CCSW 325 Software Construction
 # Student Name: Jana Aloufi   Student ID: 2111535, Change the naming of variables to be more descriptive and readable. 
 
-# Student name:Rasha Alyazydi Student ID:2114819
+# Student name:Rasha Alyazydi Student ID:2114819 - The code is devoid of appropriate comments and documentation outlining its functions, goals, and usage. To improve the readability and maintainability of the code, I've included comments and documentation.
 
 # Student name: Lama Almalki - Student ID: 2111750 - declare and initialize the integers in constant
 
